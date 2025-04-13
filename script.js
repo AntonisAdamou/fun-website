@@ -11,12 +11,12 @@ async function fetchMeme() {
 async function fetchQuote() {
     const quoteElement = document.getElementById('quote');
     try {
-        const response = await fetch('https://api.quotable.io/random');
+        const response = await fetch('https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        quoteElement.textContent = `"${data.content}" - ${data.author}`;
+        quoteElement.textContent = `"${data[0].q}" - ${data[0].a}`;
     } catch (error) {
         console.error("Error fetching quote:", error);
         quoteElement.textContent = "Failed to load quote. Please try again later.";
