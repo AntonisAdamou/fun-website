@@ -11,17 +11,17 @@ async function fetchMeme() {
 async function fetchQuote() {
     const quoteElement = document.getElementById('quote');
     try {
+        // Fetch a random quote from the API
         const response = await fetch('https://api.quotable.io/random');
         const data = await response.json();
+        
+        // Update the UI with the fetched quote
         quoteElement.textContent = `"${data.content}" - ${data.author}`;
     } catch (error) {
+        // Handle errors gracefully
         console.error("Error fetching quote:", error);
         quoteElement.textContent = "Failed to load quote. Please try again later.";
     }
-    const quotes = await response.json();
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    const randomQuote = quotes[randomIndex];
-    quoteElement.textContent = `"${randomQuote.text}" - ${randomQuote.author || 'Unknown'}`;
 }
 
 // Rock, Paper, Scissors Game
