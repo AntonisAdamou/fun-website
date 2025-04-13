@@ -10,7 +10,14 @@ async function fetchMeme() {
 // Motivational Quotes API
 async function fetchQuote() {
     const quoteElement = document.getElementById('quote');
-    const response = await fetch('https://api.quotable.io/random');
+    try {
+        const response = await fetch('https://api.quotable.io/random');
+        const data = await response.json();
+        quoteElement.textContent = `"${data.content}" - ${data.author}`;
+    } catch (error) {
+        console.error("Error fetching quote:", error);
+        quoteElement.textContent = "Failed to load quote. Please try again later.";
+    }
     const quotes = await response.json();
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const randomQuote = quotes[randomIndex];
