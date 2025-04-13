@@ -5,6 +5,7 @@ body {
     text-align: center;
     background-color: #f3f4ed;
     color: #333;
+    overflow-x: hidden;
 }
 
 header {
@@ -17,6 +18,25 @@ header h1 {
     margin: 0;
 }
 
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
 main {
     padding: 20px;
 }
@@ -25,20 +45,21 @@ section {
     margin: 20px 0;
 }
 
-#meme-container {
+#meme-container, #game-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    flex-direction: column;
+    height: auto;
     margin: 10px 0;
     border: 2px dashed #ff6f61;
     background-color: #fff;
+    padding: 20px;
 }
 
 #meme-container img {
     max-width: 100%;
-    max-height: 100%;
-    display: none;
+    max-height: 300px;
 }
 
 button {
@@ -49,8 +70,26 @@ button {
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
     background-color: #ff3b2f;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    header, main, footer {
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #meme-container img {
+        max-height: 200px;
+    }
 }

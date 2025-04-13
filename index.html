@@ -8,25 +8,37 @@
 </head>
 <body>
     <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#memes">Memes</a></li>
+                <li><a href="#quotes">Quotes</a></li>
+            </ul>
+        </nav>
         <h1>Welcome to the Fun Website!</h1>
         <p>Your daily dose of fun: Games, Memes, and Quotes!</p>
     </header>
     <main>
         <section id="games">
-            <h2>Games</h2>
-            <p>Coming Soon! Stay Tuned!</p>
+            <h2>Rock, Paper, Scissors</h2>
+            <div id="game-container">
+                <p id="game-result">Make your move!</p>
+                <button onclick="playGame('rock')">Rock</button>
+                <button onclick="playGame('paper')">Paper</button>
+                <button onclick="playGame('scissors')">Scissors</button>
+            </div>
         </section>
         <section id="memes">
             <h2>Random Meme</h2>
             <div id="meme-container">
                 <img id="meme" src="" alt="Click the button for a random meme!">
             </div>
-            <button onclick="generateMeme()">Get a Meme</button>
+            <button onclick="fetchMeme()">Get a Meme</button>
         </section>
         <section id="quotes">
-            <h2>Random Quote</h2>
+            <h2>Motivational Quote</h2>
             <p id="quote">Click the button to get inspired!</p>
-            <button onclick="generateQuote()">Get a Quote</button>
+            <button onclick="fetchQuote()">Get a Quote</button>
         </section>
     </main>
     <footer>
