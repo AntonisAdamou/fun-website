@@ -10,7 +10,7 @@ async function fetchMeme() {
 // Motivational Quotes API
 async function fetchQuote() {
     const quoteElement = document.getElementById('quote');
-    const response = await fetch('https://type.fit/api/quotes');
+    const response = await fetch('https://api.quotable.io/random');
     const quotes = await response.json();
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const randomQuote = quotes[randomIndex];
